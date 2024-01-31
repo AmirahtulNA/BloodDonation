@@ -1,0 +1,8 @@
+APScheduler == 3.7.0
+matplotlib == 3.8.2
+numpy == 1.26.3
+pandas == 2.2.0
+pillow == 10.2.0
+python-decouple == 3.8
+python-telegram-bot == 20.7
+requests == 2.31.0
