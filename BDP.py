@@ -18,7 +18,7 @@ data_urls = {
 # Create an empty dictionary to store DataFrames
 dfs = {}
 
-# Function to fetch data from URLs (CSV or Parquet)
+# Function to fetch data from URLs
 def fetch_data(url, file_format='csv'):
     response = requests.get(url)
     if file_format == 'csv':
@@ -124,8 +124,6 @@ for year in range(df['year'].min() + 1, df['year'].max() + 1):
 
     # Calculate retention rate
     retention_rate = len(common_donors) / len(unique_donors_by_year[year - 1])
-
-    # Append values to lists
     retention_rates.append(retention_rate)
     years.append(year)
 
@@ -163,8 +161,8 @@ async def send_plots_to_telegram():
 # Create a scheduler
 scheduler = AsyncIOScheduler()
 
-# Schedule the job to run every day at 10 am
-scheduler.add_job(send_plots_to_telegram, 'cron', hour=7, minute=10, second=0)
+# Schedule the job to run every day at 10.30 am
+scheduler.add_job(send_plots_to_telegram, 'cron', hour=10, minute=30, second=0)
 
 # Start the scheduler
 scheduler.start()
